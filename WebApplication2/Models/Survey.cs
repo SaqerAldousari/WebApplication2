@@ -9,12 +9,17 @@ namespace WebApplication2.Models
 {
     public class Survey
     {
-        [Key]
+        [Key]        
         public int SurveyId { get; set; }
+        [Display(Name ="Title")]
         public string title { get; set; }
+        [Display(Name = "Description")]
         public string description { get; set; }
+        [Display(Name = "Start Date")]
         public DateTime startdate { get; set; }
+        [Display(Name = "Answered Date")]
         public DateTime AnswerDate { get; set; }
+        [Display(Name = "State")]
         public string State { get; set; }
         //Realationship
         public int LeaderId { get; set; }

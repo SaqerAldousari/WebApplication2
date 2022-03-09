@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Survey>
+
+@{ 
+    ViewData["Title"] = "List of Survey";
+}
+    
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th> @Html.DisplayNameFor(model => model.title)</th>
+                    <th> @Html.DisplayNameFor(model => model.description)</th>
+                    <th> @Html.DisplayNameFor(model => model.startdate)</th>
+                    <th> @Html.DisplayNameFor(model => model.AnswerDate)</th>
+                    <th> @Html.DisplayNameFor(model => model.State)</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                <tr>
+                    <td class="align-middle">
+                        @Html.DisplayFor(modelItem => item.title) 
+                    </td>
+                    <td class="align-middle">
+                        @Html.DisplayFor(modelItem => item.description)
+                    </td>
+                    <td class="align-middle">
+                        @Html.DisplayFor(modelItem => item.startdate)
+                    </td>
+                    <td class="align-middle">
+                        @Html.DisplayFor(modelItem => item.AnswerDate)
+                    </td>
+                    <td class="align-middle">
+                        @Html.DisplayFor(modelItem => item.State)
+                    </td>
+                    <td class="align-middle">
+                        <a class="btn btn-outline-primary"><i class="bi bi-pencil-square">Edit</i></a>
+                        <a class="btn btn-outline-info"><i class="bi bi-pencil-eye">Details</i></a>
+                        <a class="btn btn-outline-danger text-white"><i class="bi bi-pencil-trash">Delete</i></a>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
