@@ -16,7 +16,7 @@ namespace WebApplication2.Data
         public DbSet<Leader> Leader { get; set; }
         public DbSet<Admin> Admin { get; set; }
         public DbSet<Survey> Survey { get; set; }
-        public DbSet<Questions> Question { get; set; }
-        public DbSet<Employees> Employee { get; set; }
+        public DbSet<Question> Question { get; set; }
+        public DbSet<Employee> Employee { get; set; }
     }
 }

@@ -11,7 +11,7 @@ namespace WebApplication2.Models
         [Key]
         public int LeaderId { get; set; }
         public string UserName { get; set; }
-        public int Password { get; set; }
+        public string Password { get; set; }
         public string Email { get; set; }
         public string Department { get; set; }
     }

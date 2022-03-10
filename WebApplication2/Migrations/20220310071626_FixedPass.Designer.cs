@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebApplication2.Data;
 
 namespace WebApplication2.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220310071626_FixedPass")]
+    partial class FixedPass
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -40,7 +42,7 @@ namespace WebApplication2.Migrations
                     b.ToTable("Admin");
                 });
 
-            modelBuilder.Entity("WebApplication2.Models.Employee", b =>
+            modelBuilder.Entity("WebApplication2.Models.Employees", b =>
                 {
                     b.Property<int>("EmployeeId")
                         .ValueGeneratedOnAdd()
@@ -66,9 +68,6 @@ namespace WebApplication2.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("grade")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("name")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("weight")
@@ -105,7 +104,7 @@ namespace WebApplication2.Migrations
                     b.ToTable("Leader");
                 });
 
-            modelBuilder.Entity("WebApplication2.Models.Question", b =>
+            modelBuilder.Entity("WebApplication2.Models.Questions", b =>
                 {
                     b.Property<int>("QuestionId")
                         .ValueGeneratedOnAdd()
@@ -115,14 +114,14 @@ namespace WebApplication2.Migrations
                     b.Property<string>("Answer")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Question")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("SurveyId")
                         .HasColumnType("int");
 
                     b.Property<int>("number")
                         .HasColumnType("int");
-
-                    b.Property<string>("question")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("type")
                         .HasColumnType("nvarchar(max)");
@@ -171,7 +170,7 @@ namespace WebApplication2.Migrations
                     b.ToTable("Survey");
                 });
 
-            modelBuilder.Entity("WebApplication2.Models.Employee", b =>
+            modelBuilder.Entity("WebApplication2.Models.Employees", b =>
                 {
                     b.HasOne("WebApplication2.Models.Leader", "Leader")
                         .WithMany()
@@ -182,7 +181,7 @@ namespace WebApplication2.Migrations
                     b.Navigation("Leader");
                 });
 
-            modelBuilder.Entity("WebApplication2.Models.Question", b =>
+            modelBuilder.Entity("WebApplication2.Models.Questions", b =>
                 {
                     b.HasOne("WebApplication2.Models.Survey", "Survey")
                         .WithMany()
