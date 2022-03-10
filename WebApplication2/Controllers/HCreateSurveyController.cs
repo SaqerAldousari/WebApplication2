@@ -18,7 +18,7 @@ namespace WebApplication2.Controllers
         }
         public IActionResult Index()
         {
-            var data = _context.Questions.ToList();
+            var data = _context.Question.ToList();
             return View();
         }
     }

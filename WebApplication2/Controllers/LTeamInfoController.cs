@@ -17,7 +17,7 @@ namespace WebApplication2.Controllers
         }
         public IActionResult Index()
         {
-            var data = _context.Employees.ToList();
+            var data = _context.Employee.ToList();
             return View();
         }
     }

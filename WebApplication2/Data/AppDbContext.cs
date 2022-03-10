@@ -13,11 +13,10 @@ namespace WebApplication2.Data
         {
 
         }
-        public DbSet<Leader> Leaders { get; set; }
-        public DbSet<Admin> Admins { get; set; }
+        public DbSet<Leader> Leader { get; set; }
+        public DbSet<Admin> Admin { get; set; }
         public DbSet<Survey> Survey { get; set; }
-        public DbSet<Questions> Questions { get; set; }
-        public DbSet<Employees> Employees { get; set; }
-        public object Surveys { get; internal set; }
+        public DbSet<Questions> Question { get; set; }
+        public DbSet<Employees> Employee { get; set; }
     }
 }
