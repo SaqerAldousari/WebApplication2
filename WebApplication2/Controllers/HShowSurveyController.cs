@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,10 +18,10 @@ namespace WebApplication2.Controllers
         {
             _context = context;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            var data = _context.Survey.ToList();
-            return View();
+            var allHShowSurvey = await _context.Survey.ToListAsync();
+            return View(allHShowSurvey);
         }
     }
 }
