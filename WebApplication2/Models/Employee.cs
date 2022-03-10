@@ -7,10 +7,11 @@ using System.Threading.Tasks;
 
 namespace WebApplication2.Models
 {
-    public class Employees
+    public class Employee
     {
         [Key]
         public int EmployeeId { get; set; }
+        public string name { get; set; }
         public DateTime StartDate { get; set; }
         public string grade { get; set; }
         public string Salary { get; set; }
