@@ -4,22 +4,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WebApplication2.Data;
+using WebApplication2.Data.Services;
 
 namespace WebApplication2.Controllers
 {
 
     public class HCreateSurveyController : Controller
     {
-        private readonly AppDbContext _context;
+        private readonly CreateSurveyService _service;
 
-        public HCreateSurveyController(AppDbContext context)
+        public HCreateSurveyController(CreateSurveyService service)
         {
-            _context = context;
+            _service = service;
         }
-        public IActionResult Index()
+        public async Task<IActionResult >Index()
         {
-            var data = _context.Question.ToList();
+            var data = await _service.GetAll();
             return View(data);
         }
+
     }
 }
