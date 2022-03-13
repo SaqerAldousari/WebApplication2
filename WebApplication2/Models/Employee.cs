@@ -20,8 +20,8 @@ namespace WebApplication2.Models
         public string ChildrenTotal { get; set; }
         public string Address { get; set; }
         //Relationship
-        public int LeaderId { get; set; }
+        public string LeaderId { get; set; }
         [ForeignKey("LeaderId")]
-        public Leader Leader { get; set; }
+        public ApplicationUser ApplicationUser { get; set; }
     }
 }

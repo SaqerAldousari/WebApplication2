@@ -22,11 +22,11 @@ namespace WebApplication2.Models
         [Display(Name = "State")]
         public string State { get; set; }
         //Realationship
-        public int LeaderId { get; set; }
+        public string LeaderId { get; set; }
         [ForeignKey("LeaderId")]
-        public Leader Leader { get; set; }
-        public int AdminId { get; set; }
+        public ApplicationUser Leader { get; set; }
+        public string AdminId { get; set; }
         [ForeignKey("AdminId")]
-        public Admin Admin { get; set; }
+        public ApplicationUser Admin { get; set; }
     }
 }

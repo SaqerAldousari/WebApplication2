@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,14 +8,12 @@ using WebApplication2.Models;
 
 namespace WebApplication2.Data
 {
-    public class AppDbContext:DbContext
+    public class AppDbContext:IdentityDbContext<ApplicationUser>
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
 
         }
-        public DbSet<Leader> Leader { get; set; }
-        public DbSet<Admin> Admin { get; set; }
         public DbSet<Survey> Survey { get; set; }
         public DbSet<Question> Question { get; set; }
         public DbSet<Employee> Employee { get; set; }
