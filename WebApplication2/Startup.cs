@@ -12,7 +12,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WebApplication2.Data;
-using WebApplication2.Models;
+using WebApplication2.Data.Services;
 
 namespace WebApplication2
 {
@@ -30,6 +30,8 @@ namespace WebApplication2
         {
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString(
                 "DefaultConnectionString")));
+            //Service configuration
+            services.AddScoped<CreateSurvey, CreateSurveyService>();
             services.AddControllersWithViews();
             //Authentication and authorization
             services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>();
