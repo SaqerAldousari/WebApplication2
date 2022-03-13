@@ -1,6 +1,8 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -31,6 +33,14 @@ namespace WebApplication2
             //Service configuration
             services.AddScoped<CreateSurvey, CreateSurveyService>();
             services.AddControllersWithViews();
+            //Authentication and authorization
+            services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>();
+            services.AddMemoryCache();
+            services.AddSession();
+            services.AddAuthentication(options =>
+            {
+                options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -50,6 +60,11 @@ namespace WebApplication2
             app.UseStaticFiles();
 
             app.UseRouting();
+            app.UseSession();
+
+            //Authentication & Authorization 
+            app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseAuthorization();
 
@@ -60,6 +75,7 @@ namespace WebApplication2
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
             //Seed data
+            AppDbInitializer.SeedUsersAndRolesAsync(app).Wait();
             AppDbInitializer.Seed(app);
         }
     }

@@ -38,9 +38,8 @@ namespace WebApplication2.Models
         [Display(Name = "Address")]
 
         //Relationship
-        public int LeaderId { get; set; }
-
+        public string LeaderId { get; set; }
         [ForeignKey("LeaderId")]
-        public Leader Leader { get; set; }
+        public ApplicationUser ApplicationUser { get; set; }
     }
 }
