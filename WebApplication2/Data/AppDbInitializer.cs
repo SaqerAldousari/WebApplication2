@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WebApplication2.Data.Static;
 using WebApplication2.Models;
 
 namespace WebApplication2.Data
@@ -16,62 +18,6 @@ namespace WebApplication2.Data
             {
                 var context = serviceScope.ServiceProvider.GetService<AppDbContext>();
                 context.Database.EnsureCreated();
-                //Leader
-                if(!context.Leader.Any())
-                {
-                    context.Leader.AddRange(new List<Leader>()
-                    {
-                        new Leader()
-                        {
-                            UserName = "Salem Aldousari",
-                            Password = "Salem123",
-                            Email = "Salem@gmail.com",
-                            Department = "HR"
-                        },
-                        new Leader()
-                        {
-                            UserName = "Ahmed Aldousari",
-                            Password = "Ahmed123",
-                            Email = "Ahmed@gmail.com",
-                            Department = "IT"
-                        },
-                        new Leader()
-                        {
-                            UserName = "Saqer Aldousari",
-                            Password = "Saqer123",
-                            Email = "Saqer@gmail.com",
-                            Department = "TR"
-                        },
-                    });
-                    context.SaveChanges();
-                }
-                //Admin
-                if (!context.Admin.Any())
-                {
-                    context.Admin.AddRange(new List<Admin>()
-                    {
-                        new Admin()
-                        {
-                            username = "Mahamad Aldousari",
-                            email= "Mahamad@gmail.com",
-                            password = "Mahamad123"
-                        },
-                        new Admin()
-                        {
-                            username = "Sara Aldousari",
-                            email= "Sara@gmail.com",
-                            password = "Sara@gmail.com"
-                        },
-                        new Admin()
-                        {
-                            username = "Maha Aldousari",
-                            email= "Maha@gmail.com",
-                            password = "Maha"
-                        },
-                    });
-                    context.SaveChanges();
-
-                }
                 //Employee
                 if (!context.Employee.Any())
                 {
@@ -86,8 +32,7 @@ namespace WebApplication2.Data
                             color = "Red",
                             weight = "74 Kg",
                             ChildrenTotal = "5",
-                            Address = "Abdullah Al-Mobarak block 6",
-                            LeaderId = 1
+                            Address = "Abdullah Al-Mobarak block 6"
                         },
                         new Employee()
                         {
@@ -98,8 +43,7 @@ namespace WebApplication2.Data
                             color = "Blue",
                             weight = "85 Kg",
                             ChildrenTotal = "2",
-                            Address = "Byan block 9",
-                            LeaderId = 2
+                            Address = "Byan block 9"
                         },
                         new Employee()
                         {
@@ -110,8 +54,7 @@ namespace WebApplication2.Data
                             color = "Black",
                             weight = "98 Kg",
                             ChildrenTotal = "6",
-                            Address = "Hawalli block 4",
-                            LeaderId = 3
+                            Address = "Hawalli block 4"
                         },
                     });
                     context.SaveChanges();
@@ -128,9 +71,7 @@ namespace WebApplication2.Data
                             description= "Questions about IT .Net Department training program ",
                             startdate = DateTime.Now,
                             AnswerDate = DateTime.Now.AddDays(3),
-                            State = "Completed",
-                            AdminId = 1,
-                            LeaderId = 1,
+                            State = "Completed"
                         },
                         new Survey()
                         {
@@ -138,9 +79,7 @@ namespace WebApplication2.Data
                             description= "Questions regarding HR new policy ",
                             startdate = DateTime.Now,
                             AnswerDate = DateTime.Now.AddDays(7),
-                            State = "Completed",
-                            AdminId = 2,
-                            LeaderId = 2,
+                            State = "Completed"
                         },
                         new Survey()
                         {
@@ -148,9 +87,7 @@ namespace WebApplication2.Data
                             description= "Questions regarding to KFH approach to Digital transformation ",
                             startdate = DateTime.Now,
                             AnswerDate = DateTime.Now.AddDays(10),
-                            State = "Completed",
-                            AdminId = 3,
-                            LeaderId = 3,
+                            State = "Completed"
                         },
                     });
                     context.SaveChanges();
@@ -188,6 +125,51 @@ namespace WebApplication2.Data
                     });
                     context.SaveChanges();
 
+                }
+            }
+        }
+
+        public static async Task SeedUsersAndRolesAsync(IApplicationBuilder applicationBuilder)
+        {
+            using (var serviceScope = applicationBuilder.ApplicationServices.CreateScope())
+            {
+                //Roles
+                var roleManager = serviceScope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+
+                if (!await roleManager.RoleExistsAsync(UserRoles.Admin))
+                    await roleManager.CreateAsync(new IdentityRole(UserRoles.Admin));
+                if (!await roleManager.RoleExistsAsync(UserRoles.User))
+                    await roleManager.CreateAsync(new IdentityRole(UserRoles.User));
+
+                //Users
+                var userManager = serviceScope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
+
+                var adminUser = await userManager.FindByEmailAsync("admin@etickets.com");
+                if (adminUser == null)
+                {
+                    var newAdminUser = new ApplicationUser()
+                    {
+                        FullName = "Saqer Aldousari",
+                        UserName = "admin-user",
+                        Email = "Admin@etickets.com",
+                        EmailConfirmed = true
+                    };
+                    await userManager.CreateAsync(newAdminUser, "Coding@1234");
+                    await userManager.AddToRoleAsync(newAdminUser, UserRoles.Admin);
+                }
+
+                var appUser = await userManager.FindByEmailAsync("user@etickets.com");
+                if (appUser == null)
+                {
+                    var newAppUser = new ApplicationUser()
+                    {
+                        FullName = "Maha Aldousari",
+                        UserName = "app-user",
+                        Email = "user@etickets.com",
+                        EmailConfirmed = true
+                    };
+                    await userManager.CreateAsync(newAppUser, "Coding@1234");
+                    await userManager.AddToRoleAsync(newAppUser, UserRoles.User);
                 }
             }
         }
