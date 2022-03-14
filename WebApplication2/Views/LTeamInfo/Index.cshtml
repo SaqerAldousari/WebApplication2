@@ -4,11 +4,104 @@
     ViewData["Title"] = "List of Employees";
 }
 
+<div class="h2">
+    <h2 class="myheader card-header"> List of Employees: </h2>
+</div>
 <div class="row">
     <div class="col-md-8 offset-md-2">
-        <table class="table">
+        <style>
+            .content-table {
+                border-collapse: collapse;
+                width: 100%;
+                background-color: rgb(91 205 75 / 0.65);
+                text-align: center;
+                font-size: 0.9em;
+                min-width: 400px;
+                border-radius: 5px 5px 0 0;
+                overflow: hidden;
+                box-shadow: 0 0 20px rgba(0,0,0,15);
+            }
+
+                .content-table thead tr {
+                    background-color: #009879;
+                    color: #ffffff;
+                    text-align: left;
+                    font-weight: bold;
+                }
+
+                .content-table th, .content-table td {
+                    padding: 8px 15px;
+                }
+
+                .content-table tbody tr {
+                    border-bottom: 1px double #000000;
+                }
+
+                    .content-table tbody tr:nth-of-type(even) {
+                        background-color: #f3f3f3;
+                    }
+
+                .content-table tbody tr {
+                    text-align: center;
+                    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                    font: bold;
+                }
+
+            .myheader {
+                color: limegreen;
+                font-weight: bold;
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            }
+
+            .button1 {
+                background-color: #f3f3f3;
+                display: inline-block;
+                color: black;
+                font-size: 14px;
+                padding: 5px 30px;
+                border-radius: 14px;
+                border: 2px solid #009879;
+                transition-duration: 0.4s;
+                width: 100%;
+            }
+
+                .button1 span {
+                    cursor: pointer;
+                    display: inline-block;
+                    position: relative;
+                    transition: 0.5s;
+                }
+
+                    .button1 span:after {
+                        content: '\00bb';
+                        position: absolute;
+                        opacity: 0;
+                        top: 0;
+                        right: -20px;
+                        transition: 0.8s;
+                    }
+
+                .button1:hover {
+                    background-color: rgb(157 200 37 / 0.65);
+                    color: white;
+                }
+
+                    .button1:hover span:after {
+                        opacity: 1;
+                        right: 5;
+                    }
+            div {
+               background-image: url('file:///C:\Users\9222\source\repos\SaqerAldousari\WebApplication2\WebApplication2\Pics\kfhback.PNG');
+                background-repeat: no-repeat;
+                background-size: contain;
+                
+            }
+        </style>
+        
+        
+        <table class="content-table">
             <thead>
-                <tr class="text-center">
+                <tr class="text-center" ">
 
                     <th> @Html.DisplayNameFor(model => model.name)</th>
                     <th> @Html.DisplayNameFor(model => model.StartDate)</th>
@@ -18,9 +111,11 @@
                     <th> @Html.DisplayNameFor(model => model.weight)</th>
                     <th> @Html.DisplayNameFor(model => model.ChildrenTotal)</th>
                     <th> @Html.DisplayNameFor(model => model.Address)</th>
+                    <th> @Html.DisplayNameFor(model => model.Address)</th>
                     <th>Actions</th>
                 </tr>
             </thead>
+
             <tbody>
                 @foreach (Employee item in Model)
                 {
@@ -52,30 +147,17 @@
                         <td class="align-middle">
                             @Html.DisplayFor(modelItem => item.Address)
                         </td>
+
                         <td class="align-middle">
-                            <a class="btn btn-outline-primary"><i class="bi bi-pencil-square">Edit</i></a>
-                            <a class="btn btn-outline-success"><i class="bi bi-pencil-eye">Details</i></a>
-                            <a class="btn btn-outline-danger"><i class="bi bi-pencil-trash">Delete</i></a>
+                            <button class="button button1" style="vertical-align:central"><span>View  </span></button>
                         </td>
+
                     </tr>
                 }
             </tbody>
 
         </table>
-        <style>
 
-            table {
-                border-collapse: collapse;
-                width: 100%;
-                background-color: palegreen;
-                border: 2px solid #000000;
-                text-align: center;
-            }
-
-            table, th, td {
-                border: 0.5px solid #1a773c;
-            }
-        </style>
     </div>
 </div>
 

@@ -5,9 +5,12 @@ using System.Threading.Tasks;
 
 namespace WebApplication2.Views.LTeamInfo
 {
+
     public class TeamNav
     {
 
     }
 
 }
+
+
