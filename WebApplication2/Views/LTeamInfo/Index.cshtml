@@ -9,7 +9,7 @@
         <table class="table">
             <thead>
                 <tr class="text-center">
-                    <th> @Html.DisplayNameFor(model => model.EmployeeId)</th>
+
                     <th> @Html.DisplayNameFor(model => model.name)</th>
                     <th> @Html.DisplayNameFor(model => model.StartDate)</th>
                     <th> @Html.DisplayNameFor(model => model.grade)</th>
@@ -22,45 +22,61 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var item in Model)
+                @foreach (Employee item in Model)
                 {
-                <tr>
-                    <td class="align-middle">
-                        @Html.DisplayFor(modelItem => item.EmployeeId)
-                    </td>
-                    <td class="align-middle">
-                        @Html.DisplayFor(modelItem => item.name)
-                    </td>
-                    <td class="align-middle">
-                        @Html.DisplayFor(modelItem => item.StartDate)
-                    </td>
-                    <td class="align-middle">
-                        @Html.DisplayFor(modelItem => item.grade)
-                    </td>
-                    <td class="align-middle">
-                        @Html.DisplayFor(modelItem => item.Salary)
-                    </td>
-                    <td class="align-middle">
-                        @Html.DisplayFor(modelItem => item.color)
-                    </td>
-                    <td class="align-middle">
-                        @Html.DisplayFor(modelItem => item.weight)
-                    </td>
-                    <td class="align-middle">
-                        @Html.DisplayFor(modelItem => item.ChildrenTotal)
-                    </td>
-                    <td class="align-middle">
-                        @Html.DisplayFor(modelItem => item.Address)
-                    </td>
-                    <td class="align-middle">
-                        <a class="btn btn-outline-primary"><i class="bi bi-pencil-square">Edit</i></a>
-                        <a class="btn btn-outline-info"><i class="bi bi-pencil-eye">Details</i></a>
-                        <a class="btn btn-outline-danger text-white"><i class="bi bi-pencil-trash">Delete</i></a>
-                    </td>
-                </tr>
+                    <tr>
+                        <td class="align-middle">
+                            @Html.DisplayFor(modelItem => item.EmployeeId)
+                        </td>
+                        <td class="align-middle">
+                            @Html.DisplayFor(modelItem => item.name)
+                        </td>
+                        <td class="align-middle">
+                            @Html.DisplayFor(modelItem => item.StartDate)
+                        </td>
+                        <td class="align-middle">
+                            @Html.DisplayFor(modelItem => item.grade)
+                        </td>
+                        <td class="align-middle">
+                            @Html.DisplayFor(modelItem => item.Salary)
+                        </td>
+                        <td class="align-middle">
+                            @Html.DisplayFor(modelItem => item.color)
+                        </td>
+                        <td class="align-middle">
+                            @Html.DisplayFor(modelItem => item.weight)
+                        </td>
+                        <td class="align-middle">
+                            @Html.DisplayFor(modelItem => item.ChildrenTotal)
+                        </td>
+                        <td class="align-middle">
+                            @Html.DisplayFor(modelItem => item.Address)
+                        </td>
+                        <td class="align-middle">
+                            <a class="btn btn-outline-primary"><i class="bi bi-pencil-square">Edit</i></a>
+                            <a class="btn btn-outline-success"><i class="bi bi-pencil-eye">Details</i></a>
+                            <a class="btn btn-outline-danger"><i class="bi bi-pencil-trash">Delete</i></a>
+                        </td>
+                    </tr>
                 }
             </tbody>
+
         </table>
+        <style>
+
+            table {
+                border-collapse: collapse;
+                width: 100%;
+                background-color: palegreen;
+                border: 2px solid #000000;
+                text-align: center;
+            }
+
+            table, th, td {
+                border: 0.5px solid #1a773c;
+            }
+        </style>
     </div>
 </div>
+
 
