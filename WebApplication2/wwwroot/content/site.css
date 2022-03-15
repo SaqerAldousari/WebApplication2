@@ -59,8 +59,11 @@ html {
 }
 
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
+    /* Margin bottom by footer height */
+    margin-bottom: 70px;
+    background-image: url('file:///C:\Users\9222\source\repos\SaqerAldousari\WebApplication2\WebApplication2\Pics\kfhback.PNG');
+    background-size:cover;
+    background-repeat:no-repeat;
 }
 .footer {
   position: absolute;
