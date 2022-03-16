@@ -8,9 +8,9 @@
     <h2 class="myheader card-header"> Log in to your account </h2>
 </div>
 <div class="row">
-    <div class="col-md-6 offset-3">
+    <div class="col-md-6 offset-3" style=" background-image:src(/wwwroot/Pics/kfhback.PNG)">
         <p>
-            <h4>Welcome To KFH</h4>
+            <h4 class="myheader2">Welcome To KFH</h4>
         </p>
         @if(TempData["Error"] != null)
             {
@@ -19,6 +19,14 @@
                 </div>
             }
         <style>
+            body {
+                background-image: url(/Pics/kfhback.PNG);
+            }
+
+            .myheader2 {
+                text-align: center;
+            }
+
             .myheader {
                 color: limegreen;
                 font-weight: bold;
@@ -31,7 +39,7 @@
             }
         </style>
         <div class="row">
-            <div class="col-md-8 offset-2">
+            <div class="col-md-8 offset-2" style=" background-image:src(/wwwroot/Pics/kfhback.PNG)">
                 <form class="login" asp-action="Login">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
