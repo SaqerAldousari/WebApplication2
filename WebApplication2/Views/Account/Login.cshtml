@@ -5,12 +5,12 @@
     ViewData["Title"] = "Log in to your account";
 }
 <div class="h2">
-    <h2 class="myheader card-header"> Log in to your account </h2>
+    <h2 class="myheader card-header"> Welcome to KFH </h2>
 </div>
 <div class="row">
     <div class="col-md-6 offset-3" style=" background-image:src(/wwwroot/Pics/kfhback.PNG)">
         <p>
-            <h4 class="myheader2">Welcome To KFH</h4>
+            <h4 class="myheader2">[ Together we achieve more! ]</h4>
         </p>
         @if(TempData["Error"] != null)
             {
@@ -25,10 +25,13 @@
 
             .myheader2 {
                 text-align: center;
+                color: forestgreen;
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                font-weight: bold;
             }
 
             .myheader {
-                color: limegreen;
+                color: forestgreen;
                 font-weight: bold;
                 font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
             }

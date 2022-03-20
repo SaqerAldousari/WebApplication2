@@ -1,14 +1,106 @@
 ﻿@model IEnumerable<Survey>
 
-@{ 
+@{
     ViewData["Title"] = "List of Survey";
 }
-    
-<div class="row">
-    <div class="col-md-8 offset-md-2">
-        <table class="table">
+
+<div class="h2">
+    <h2 class="myheader card-header"> Exisiting Surveys : </h2>
+</div><div class="row">
+    <div class="col-md-8 offset-md-2" style=" background-image:src(/wwwroot/Pics/kfhback.PNG)">
+        <style>
+            body {
+                background-image: url(/Pics/kfhback.PNG);
+            }
+
+            .table2 {
+                border-collapse: collapse;
+                width: 100%;
+                background-color: rgb(91 205 75 / 0.65);
+                text-align: center;
+                font-size: 0.9em;
+                min-width: 400px;
+                border-radius: 5px 5px 0 0;
+                overflow: hidden;
+                box-shadow: 0 0 20px rgba(0,0,0,15);
+                transform: translateX(120px);
+               
+            }
+
+                .table2 thead tr {
+                    background-color: #009879;
+                    color: #ffffff;
+                    text-align: center;
+                    font-weight: bold;
+                }
+
+                .table2 th, .content-table td {
+                    padding: 8px 15px;
+                }
+
+                .table2 tbody tr {
+                    border-bottom: 1px double #000000;
+                }
+
+                    .table2 tbody tr:nth-of-type(even) {
+                        background-color: #f3f3f3;
+                    }
+
+                .table2 tbody tr {
+                    text-align: center;
+                    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                    font: bold;
+                }
+              
+
+
+            .myheader {
+                color: limegreen;
+                font-weight: bold;
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            }
+
+            .button2 {
+                background-color: #f3f3f3;
+                display: inline-block;
+                color: black;
+                font-size: 14px;
+                padding: 5px 15px;
+                border-radius: 14px;
+                border: 2px solid #009879;
+                transition-duration: 0.4s;
+                width: 100%;
+            }
+
+                .button2 span {
+                    cursor: pointer;
+                    display: inline-block;
+                    position: relative;
+                    transition: 0.5s;
+                }
+
+                    .button2 span:after {
+                        content: '\00bb';
+                        position: absolute;
+                        opacity: 0;
+                        top: 0;
+                        right: -10px;
+                        transition: 0.8s;
+                    }
+
+                .button2:hover {
+                    background-color: rgb(157 200 37 / 0.65);
+                    color: white;
+                }
+
+                    .button2:hover span:after {
+                        opacity: 1;
+                        right: 5;
+                    }
+        </style>
+        <table class="table2">
             <thead>
-                <tr class="text-center">
+                <tr>
                     <th> @Html.DisplayNameFor(model => model.title)</th>
                     <th> @Html.DisplayNameFor(model => model.description)</th>
                     <th> @Html.DisplayNameFor(model => model.startdate)</th>
@@ -20,33 +112,30 @@
             <tbody>
                 @foreach (Survey item in Model)
                 {
-                   
-                        <tr>
-                            <td class="align-middle">
-                                @Html.DisplayFor(modelItem => item.title)
-                            </td>
-                            <td class="align-middle">
-                                @Html.DisplayFor(modelItem => item.description)
-                            </td>
-                            <td class="align-middle">
-                                @Html.DisplayFor(modelItem => item.startdate)
-                            </td>
-                            <td class="align-middle">
-                                @Html.DisplayFor(modelItem => item.AnswerDate)
-                            </td>
-                            <td class="align-middle">
-                                @Html.DisplayFor(modelItem => item.State)
-                            </td>
-                            <td class="align-middle">
-                                <a class="btn btn-outline-primary"><i class="bi bi-pencil-square">Edit</i></a>
-                                <a class="btn btn-outline-info"><i class="bi bi-pencil-eye">Details</i></a>
-                                <a class="btn btn-outline-danger text-white"><i class="bi bi-pencil-trash">Delete</i></a>
-                            </td>
-                        </tr>
+
+                    <tr>
+                        <td class="align-middle">
+                            @Html.DisplayFor(modelItem => item.title)
+                        </td>
+                        <td class="align-middle">
+                            @Html.DisplayFor(modelItem => item.description)
+                        </td>
+                        <td class="align-middle">
+                            @Html.DisplayFor(modelItem => item.startdate)
+                        </td>
+                        <td class="align-middle">
+                            @Html.DisplayFor(modelItem => item.AnswerDate)
+                        </td>
+                        <td class="align-middle">
+                            @Html.DisplayFor(modelItem => item.State)
+                        </td>
+                        <td class="align-middle">
+                            <button class="button button2" style="vertical-align:central"><span>View Survey</span></button>
+                        </td>
+                    </tr>
                 }
             </tbody>
         </table>
     </div>
 </div>
 
- 
