@@ -5,19 +5,20 @@
 }
 
 <div class="h2">
-    <h1 class="myheader2" style="border:2px solid limegreen;"> Survey Title : KFH Digital transformation</h1>
+    <h1 class="myheader2" style="border:2px solid limegreen;"> Survey Title :  HR New policy</h1>
 </div><div class="row">
     <div class="col-md-8 offset-md-2" style=" background-image:src(/wwwroot/Pics/kfhback.PNG)">
         <style>
             body {
                 background-image: url(/Pics/kfhback.PNG);
             }
-            .myheader2{
+
+            .myheader2 {
                 font-size: 0.7em;
                 background-color: white;
                 font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
             }
-            
+
             .table2 {
                 border-collapse: collapse;
                 width: 100%;
@@ -32,7 +33,7 @@
             }
 
                 .table2 thead tr {
-                    background-color: #ffd800;
+                    background-color: #009879;
                     color: #ffffff;
                     text-align: center;
                     font-weight: bold;
@@ -101,42 +102,69 @@
                         opacity: 1;
                         right: 5;
                     }
-            .trdesign{
-
-                color: white;
-                font-family:'AGA Arabesque';
-                text-align: center;
-            }
         </style>
+        <table class="table2">
+            <thead>
+                <tr>
+                    <th> @Html.DisplayNameFor(model => model.title)</th>
+                    <th> @Html.DisplayNameFor(model => model.description)</th>
+                    <th> @Html.DisplayNameFor(model => model.startdate)</th>
+                    <th> @Html.DisplayNameFor(model => model.AnswerDate)</th>
+                    <th> @Html.DisplayNameFor(model => model.State)</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Survey item in Model)
+                {
 
+                    <tr>
+                        <td class="align-middle">
+                            @Html.DisplayFor(modelItem => item.title)
+                        </td>
+                        <td class="align-middle">
+                            @Html.DisplayFor(modelItem => item.description)
+                        </td>
+                        <td class="align-middle">
+                            @Html.DisplayFor(modelItem => item.startdate)
+                        </td>
+                        <td class="align-middle">
+                            @Html.DisplayFor(modelItem => item.AnswerDate)
+                        </td>
+                        <td class="align-middle">
+                            @Html.DisplayFor(modelItem => item.State)
+                        </td>
+                        <td class="align-middle">
+                            <button class="button button2" style="vertical-align:central"><span>View Survey</span></button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
             <table class="table2" border="1" style="font-family:Georgia, Garamond, Serif;color:forestgreen;font-style:italic; border-block-color">
-                
-                   <thead>
+                <tr>
+                    <th align="left">Survey title: HR New policy </th>
 
-
-                   </thead>
-                    <tr>
-                        <td align="center">No.</td>
-                        <td>Question</td>
-                        <td>Answer</td>
-                    </tr>
-                    <tr>
-                        <td align="center">1</td>
-                        <td>Why do you need to transform your department digitally?</td>
-                        <td>because it will increase the business efficiency </td>
-                    </tr>
-                    <tr>
-                        <td align="center">2</td>
-                        <td>How do you plan to communicate the change? </td>
-                        <td>By implementing squad team strategy and each get a specific role</td>
-                    </tr>
-                    <tr>
-                        <td align="center">3</td>
-                        <td>Which digital technologies should you invest in?</td>
-                        <td>AI will be a great invesment for the business as it will reduce the respond time for the frequent questions and requests.</td>
-                    </tr>
-
-                
+                </tr>
+                <tr>
+                    <td align="center">No.</td>
+                    <td>Question</td>
+                    <td>Answer</td>
+                </tr>
+                <tr>
+                    <td align="center">1</td>
+                    <td>Are you aware of the new HR policies?</td>
+                    <td>Yes. </td>
+                </tr>
+                <tr>
+                    <td align="center">2</td>
+                    <td>Do you see this new "permission to leave work early" policy is fair? and why? </td>
+                    <td>No, because sometimes  the employee face an emergency that he/she needs to leave work immediately. </td>
+                </tr>
+                <tr>
+                    <td align="center">3</td>
+                    <td>Do you have any suggestion regarding the new policies?</td>
+                    <td>In case of the emergency where the employee needs to leave work quickly, allow them to provide their permission within 24 hour.</td>
+                </tr>
             </table>
     </div>
 </div>

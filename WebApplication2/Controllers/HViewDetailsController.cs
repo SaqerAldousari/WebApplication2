@@ -20,5 +20,15 @@ namespace WebApplication2.Controllers
             var data = _context.Survey.ToList();
             return View(data);
         }
+        public IActionResult Index1()
+        {
+            var data = _context.Survey.ToList();
+            return View(data);
+        }
+        public IActionResult Index2()
+        {
+            var data = _context.Survey.ToList();
+            return View(data);
+        }
     }
 }
