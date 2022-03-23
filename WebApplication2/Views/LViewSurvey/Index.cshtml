@@ -138,9 +138,7 @@
                       <tr>
                           <th> @Html.DisplayNameFor(model => model.title)</th>
                           <th> @Html.DisplayNameFor(model => model.description)</th>
-                          <th> @Html.DisplayNameFor(model => model.startdate)</th>
-                          <th> @Html.DisplayNameFor(model => model.AnswerDate)</th>
-                          <th> @Html.DisplayNameFor(model => model.State)</th>
+                          
                           <th>Actions</th>
                       </tr>
                   </thead>
@@ -155,15 +153,7 @@
                               <td class="align-middle">
                                   @Html.DisplayFor(modelItem => item.description)
                               </td>
-                              <td class="align-middle">
-                                  @Html.DisplayFor(modelItem => item.startdate)
-                              </td>
-                              <td class="align-middle">
-                                  @Html.DisplayFor(modelItem => item.AnswerDate)
-                              </td>
-                              <td class="align-middle">
-                                  @Html.DisplayFor(modelItem => item.State)
-                              </td>
+                            
                               <td class="align-middle">
                                   <button class="button button2" style="vertical-align:central"><span>View Survey</span></button>
                               </td>

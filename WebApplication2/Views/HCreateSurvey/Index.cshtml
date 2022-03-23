@@ -1,35 +1,109 @@
-﻿@model List<Question>
+﻿@model IEnumerable<Survey>
 
 @{
-    ViewData["Question"] = "List of Questions";
+    ViewData["Title"] = "List of Survey";
 }
-<div class="u-expanded-width u-form u-form-1">
-    <form action="#" method="POST" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" source="custom" name="form" style="padding: 10px;">
-        <div class="u-form-group u-form-select u-form-group-1">
-            <label for="select-a3fe" class="u-label">The leader to send survey to:</label>
-            <input type="text" name="Leader" placeholder=" Leader Name" />
-        </div>
-        <div class="u-form-group u-form-select u-form-group-2">
-            <label for="select-ebcc" class="u-label">Select Type of survey to make:</label>
-            <input type="text" name="Type" placeholder=" Type of the survey" />
-        </div>
-        <div class="u-form-group u-form-group-4">
-            <label for="text-33a1" class="u-label">Survey title</label>
-            <input type="text" placeholder="title" id="title" name="Title" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">
-        </div>
-        <div class="u-form-group u-form-textarea u-form-group-5">
-            <label for="textarea-6f36" class="u-label">Survey Discription</label>
-            <textarea rows="4" cols="50" name="Discription" placeholder="Discription" id="Discription-6f36" name="Discription" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required=""></textarea>
-        </div>
-        <div class="u-form-group u-form-textarea u-form-group-5">
-            <label for="textarea-6f36" class="u-label">Question</label>
-            <textarea rows="4" cols="50" name="Questione" placeholder="Question" id="Question-6f36" name="Question" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required=""></textarea>
-        </div>
-        <div class="u-align-center u-form-group u-form-submit">
-            <a href="#" class="u-btn u-btn-submit u-button-style">Next<br> </a>
-            <input type="submit" value="submit" class="u-form-control-hidden">
-        </div>
-        <div class="u-form-send-message u-form-send-success"> Thank you! Your message has been sent. </div>
-        <input type="hidden" value="" name="recaptchaResponse">
-    </form>
+
+<div class="h2">
+    <h2 class="myheader card-header"> Create a new Survey : </h2>
+</div><div class="row">
+          <div class="col-md-8 offset-md-2" style=" background-image:src(/wwwroot/Pics/kfhback.PNG)">
+              <style>
+                  body {
+                      background-image: url(/Pics/kfhback.PNG);
+                  }
+
+                  .myheader {
+                      color: limegreen;
+                      font-weight: bold;
+                      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                  }
+
+                  .button3 {
+                      background-color: #f3f3f3;
+                      display: inline-block;
+                      color: black;
+                      font-size: 14px;
+                      padding: 5px 15px;
+                      border-radius: 14px;
+                      border: 2px solid #009879;
+                      transition-duration: 0.4s;
+                      width: 70%;
+                      text-align: center;
+                      margin-left: 30%;
+                      margin-right: 30%;
+                  }
+
+                      .button3 span {
+                          cursor: pointer;
+                          display: inline-block;
+                          position: relative;
+                          transition: 0.5s;
+                      }
+
+                          .button3 span:after {
+                              content: '\00bb';
+                              position: absolute;
+                              opacity: 0;
+                              top: 0;
+                              right: -10px;
+                              transition: 0.8s;
+                          }
+
+                      .button3:hover {
+                          background-color: rgb(157 200 37 / 0.65);
+                          color: white;
+                      }
+
+                          .button3:hover span:after {
+                              opacity: 1;
+                              right: 5;
+                          }
+
+                  .Titles {
+                      color: black;
+                      text-align: left;
+                      font-weight: bold;
+                      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                      text-shadow: inherit;
+                      font-size: large;
+                  }
+
+                  .box2 {
+                      background-color: lightgreen;
+                      border-block: double;
+                      padding: 5px 100px;
+                  }
+
+                  .box3 {
+                      background-color: lightgreen;
+                      border-block: double;
+                      padding: 30px 100px;
+                  }
+              </style>
+
+
+              <form action="/action_page.php">
+                  <label class="Titles" for="fname"><pre>              Send to:             </pre></label>
+                  <input class="box2" type="text" id="fname" name="fname"><br><br>
+                  <label class="Titles" for="lname"><pre>              Survey Title:        </pre></label>
+                  <input class="box2" type="text" id="lname" name="lname"><br><br>
+                  <label class="Titles" for="lname"><pre>              Survey description : </pre></label>
+                  <input class="box3" type="text" id="lname" name="desname"><br><br>
+                  <label class="Titles" for="lname"><pre>              Question 1 :         </pre></label>
+                  <input class="box2" type="text" id="lname" name="desname"><br><br>
+
+
+              </form>
+
+              <button class="button button3" style="vertical-align:central"><span>Add other Question</span></button>
+
+              <button class="button button3" style="vertical-align:central"><span>Send Survey</span></button>
+
+              <button class="button button3" style="vertical-align:central"><span>Back to main page</span></button>
+              
+
+          </div>
+
 </div>
+

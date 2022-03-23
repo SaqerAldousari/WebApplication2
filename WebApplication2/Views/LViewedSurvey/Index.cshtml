@@ -1,0 +1,113 @@
+﻿@model IEnumerable<Survey>
+
+@{
+    ViewData["Title"] = "List of Survey";
+}
+
+<div class="h2">
+    <h2 class="myheader card-header"> Welcome, please fill the following Survey : </h2>
+</div><div class="row">
+    <div class="col-md-8 offset-md-2" style=" background-image:src(/wwwroot/Pics/kfhback.PNG)">
+        <style>
+            body {
+                background-image: url(/Pics/kfhback.PNG);
+            }
+
+            .myheader {
+                color: limegreen;
+                font-weight: bold;
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            }
+
+            .button3 {
+                background-color: #f3f3f3;
+                display: inline-block;
+                color: black;
+                font-size: 14px;
+                padding: 5px 15px;
+                border-radius: 14px;
+                border: 2px solid #009879;
+                transition-duration: 0.4s;
+                width: 70%;
+                text-align: center;
+                margin-left: 30%;
+                margin-right: 30%;
+            }
+
+                .button3 span {
+                    cursor: pointer;
+                    display: inline-block;
+                    position: relative;
+                    transition: 0.5s;
+                }
+
+                    .button3 span:after {
+                        content: '\00bb';
+                        position: absolute;
+                        opacity: 0;
+                        top: 0;
+                        right: -10px;
+                        transition: 0.8s;
+                    }
+
+                .button3:hover {
+                    background-color: rgb(157 200 37 / 0.65);
+                    color: white;
+                }
+
+                    .button3:hover span:after {
+                        opacity: 1;
+                        right: 5;
+                    }
+
+            .Titles {
+                color: black;
+                text-align: left;
+                font-weight: bold;
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                text-shadow: inherit;
+                font-size: large;
+                color: forestgreen;
+            }
+
+            .box2 {
+                background-color: lightgreen;
+                border-block: double;
+                padding: 5px 100px;
+            }
+
+            .box3 {
+                background-color: lightgreen;
+                border-block: double;
+                padding: 30px 120px;
+            }
+        </style>
+
+
+        <form action="/action_page.php">
+            <label class="Titles" for="fname"><pre>              Question 1 : Why do you need to transform your department digitally?                        </pre></label>
+            <label class="Titles" for="fname"><pre>              Answer:         </pre></label>
+            <input class="box3" type="text" id="fname" name="fname"><br><br>
+            <label class="Titles" for="lname"><pre>              Question 2 : How do you plan to communicate the change?                       </pre></label>
+            <label class="Titles" for="fname"><pre>              Answer:         </pre></label>
+            <input class="box3" type="text" id="lname" name="lname"><br><br>
+            <label class="Titles" for="lname"><pre>              Question 3 : Which digital technologies should you invest in?                        </pre></label>
+            <label class="Titles" for="fname"><pre>              Answer:         </pre></label>
+            <input class="box3" type="text" id="lname" name="desname"><br><br>
+            <label class="Titles" for="lname"><pre>              Notes :         </pre></label>
+            <input class="box3" type="text" id="lname" name="desname"><br><br>
+
+
+        </form>
+
+        <button class="button button3" style="vertical-align:central"><span>** Add Attachment ** </span></button>
+
+        <button class="button button3" style="vertical-align:central"><span>Return Survey</span></button>
+
+        <button class="button button3" style="vertical-align:central"><span>Back to main page</span></button>
+
+
+    </div>
+
+</div>
+
